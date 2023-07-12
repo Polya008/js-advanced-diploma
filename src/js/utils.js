@@ -1,30 +1,48 @@
-/**
- * @todo
- * @param index - индекс поля
- * @param boardSize - размер квадратного поля (в длину или ширину)
- * @returns строка - тип ячейки на поле:
- *
- * top-left
- * top-right
- * top
- * bottom-left
- * bottom-right
- * bottom
- * right
- * left
- * center
- *
- * @example
- * ```js
- * calcTileType(0, 8); // 'top-left'
- * calcTileType(1, 8); // 'top'
- * calcTileType(63, 8); // 'bottom-right'
- * calcTileType(7, 7); // 'left'
- * ```
- * */
 export function calcTileType(index, boardSize) {
-  // TODO: ваш код будет тут
+  // TODO: write logic here
+  const columnNumber = index % boardSize;
+  const rowNumber = Math.floor(index / boardSize);
+  const max = boardSize - 1;
+
+  if (!columnNumber && !rowNumber) {
+    return 'top-left';
+  }
+
+  if (columnNumber === max && !rowNumber) {
+    return 'top-right';
+  }
+
+  if (!rowNumber) {
+    return 'top';
+  }
+
+  if (!columnNumber && rowNumber === max) {
+    return 'bottom-left';
+  }
+
+  if (columnNumber === max && rowNumber === max) {
+    return 'bottom-right';
+  }
+
+  if (rowNumber === max) {
+    return 'bottom';
+  }
+
+  if (columnNumber === max) {
+    return 'right';
+  }
+
+  if (!columnNumber) {
+    return 'left';
+  }
+
   return 'center';
+}
+
+export function tooltipMessage({
+  level, attack, defence, health,
+}) {
+  return `🎖${level} ⚔${attack} 🛡${defence} ❤${health}`;
 }
 
 export function calcHealthLevel(health) {
