@@ -1,5 +1,5 @@
-const HtmlWebpackPlagin = require ('html-webpack-plugin');
-const MiniCSSExtractPlagin =  require('mini-css-extract-plagin');
+const HtmlWebpackPlugin = require ('html-webpack-plugin');
+const MiniCSSExtractPlugin =  require('mini-css-extract-plugin');
 const path = require('path');
 
 
@@ -20,7 +20,7 @@ module.exports =  {
       {
          test: /\.css$/,
          use: [
-           MiniCSSExtractPlagin.loader,
+           MiniCSSExtractPlugin.loader,
           "css-loader"
     ]
   },
@@ -30,10 +30,10 @@ module.exports =  {
           },
           ],
     plugins: [
-    new HtmlWebpackPlagin({
+    new HtmlWebpackPlugin({
       template: './src/index.html'
     }),
-    new MiniCSSExtractPlagin({
+    new MiniCSSExtractPlugin({
        filename: 'bundle.css'
     })
     ]
