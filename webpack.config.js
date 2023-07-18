@@ -9,8 +9,7 @@ module.exports =  {
   },
 
   module: {
-    rules: [
-      {
+    rules: [{
         test: /\.js$/,
         exclude: /node_modules/,
         use: {
@@ -29,6 +28,7 @@ module.exports =  {
           loader: "html-loader",
           },
           ],
+
     plugins: [
     new HtmlWebpackPlugin({
       template: './src/index.html'
@@ -40,3 +40,7 @@ module.exports =  {
 }
 
 }
+
+
+
+
